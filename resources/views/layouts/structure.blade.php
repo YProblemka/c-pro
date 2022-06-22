@@ -8,6 +8,7 @@
     <link rel="icon" href="favicon.svg" sizes="48x48" type="image/x-icon">
 
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/media.css">
 
     <title>@yield('title')</title>
 </head>
@@ -37,7 +38,7 @@
                             </h4>
                             <input type="email" placeholder="E-mail*" required>
                             <input type="text" placeholder="Напишите, что вас интересует">
-                            <button type="submit">Отправить</button>
+                            <button type="submit" class="btn btn-hover">Отправить</button>
                         </form>
                         <img src="img/footer.png" alt="Оставьте заявку">
                     </div>
