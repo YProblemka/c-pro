@@ -65,7 +65,7 @@
                     </li>
                 </ul>
                 <div class="align-right">
-                    <a href="" class="load-more">Ещё <img src="img/arrow.svg" alt="Загрузить"></a>
+                    <a href="{{route("blog")}}" class="load-more">Ещё <img src="img/arrow.svg" alt="Загрузить"></a>
                 </div>
             </section>
         </div>

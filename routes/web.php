@@ -15,4 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name("index");
+
+Route::get('/blog', function () {
+    return view('blog');
+})->name("blog");
+
+Route::get('/service', function () {
+    return view('service');
+})->name("service");
+
+Route::get('/blog-details', function () {
+    return view('blog-details');
+})->name("blog-details");

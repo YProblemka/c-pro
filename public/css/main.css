@@ -139,7 +139,7 @@ img {
     letter-spacing: 0.025em;
     color: var(--white);
     background: var(--green);
-    padding: 7px 37px;
+    padding: 8px 38px;
     border: 2px solid var(--green);
     border-radius: var(--borr);
 }
@@ -255,11 +255,16 @@ img {
     margin-bottom: var(--section-gap);
 }
 
-.our-works__list {
+.grid {
     display: grid;
     grid-template-columns: 305px 305px 305px;
     grid-template-rows: 164px 164px;
     gap: 20px;
+}
+
+.grid--big {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 250px 250px;
 }
 
 .our-works__list img {
@@ -352,19 +357,18 @@ aside {
 }
 
 .blog .blog__list {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.blog .blog__item {
-    width: 413px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px 20px;
 }
 
 div.align-right {
     display: flex;
     justify-content: flex-end;
+}
+div.align-center {
+    display: flex;
+    justify-content: center;
 }
 
 .load-more {
@@ -376,4 +380,74 @@ div.align-right {
     line-height: 21px;
     letter-spacing: 0.025em;
     color: inherit;
+}
+
+.pagination {
+    display: flex;
+    align-items: stretch;
+    margin-top: 20px;
+}
+
+.pagination .pagination__link {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black);
+    width: 40px;
+    height: 40px;
+    border-radius: var(--borr);
+}
+
+.pagination .pagination__link--active,
+.pagination .pagination__link:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+.pagination .pagination__item:first-child {
+    transform: rotate(180deg);
+}
+
+.pagination .pagination__link--disabled {
+    align-items: flex-end;
+    padding-bottom: 8px;
+}
+
+.pagination .pagination__link--disabled:hover {
+    background: transparent;
+    color: inherit;
+}
+
+.service {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.service .service__text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: var(--black);
+}
+
+.service .service__img {
+    border-radius: var(--borr);
+}
+
+.subtitle {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.blog-details .blog-details__date {
+    color: var(--black);
 }
