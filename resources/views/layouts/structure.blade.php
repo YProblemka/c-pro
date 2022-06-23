@@ -18,7 +18,7 @@
         <header class="header">
             <div class="container">
                 <div class="header__wrapper">
-                    <a href="{{route("index")}}"><img src="img/logo.svg" alt="Сервис C PRO"></a>
+                    <a href="{{route("index")}}" class="header__logo"><img src="img/logo.svg" alt="Сервис C PRO"></a>
                     <div class="header__links">
                         <a href="tel:+79467384837">+7 946 738 48 37</a>
                         <a href="">Наш телеграм <img src="img/telegram.svg" alt="Телеграм"></a>
@@ -57,7 +57,7 @@
                             </ul>
                         </div>
                         <div class="footer__bottom-right">
-                            <div class="footer__list-wrapper">
+                            <div class="footer__list-wrapper footer__list-wrapper--contacts">
                                 <ul class="footer__list">
                                     <li><a href="tel:+79467384837">+7 946 738 48 37 <img src="img/phone.svg"
                                                 alt=""></a></li>

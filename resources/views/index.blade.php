@@ -20,13 +20,13 @@
                             <li class="nav__item"><a href="" class="nav__link">Теплые полы</a></li>
                             <li class="nav__item"><a href="" class="nav__link">Сборка Котельной</a></li>
                             <li class="nav__item"><a href="" class="nav__link">Электричесвто</a></li>
-                            <li class="nav__item"><a href="" class="nav__link">Дизайн проект</a></li>
+                            <li class="nav__item"><a href="{{route("service")}}" class="nav__link">Дизайн проект</a></li>
                         </ul>
                     </nav>
                 </aside>
                 <div class="our-works">
                     <h2>Наши работы</h2>
-                    <ul class="our-works__list">
+                    <ul class="our-works__list grid">
                         <li><img src="img/our-works1.png" alt="Проводка"></li>
                         <li><img src="img/our-works2.png" alt="Отопление"></li>
                         <li><img src="img/our-works3.png" alt="Проводка"></li>
