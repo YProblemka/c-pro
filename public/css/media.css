@@ -20,8 +20,12 @@
     .container {
         max-width: 640px;
     }
+    .service{
+        display: flex;
+        flex-direction: column;
+    }
     .service .service__img {
-        display: none;
+        width: 100%;
     }
     .jb h1 {
         text-align: left;
@@ -67,6 +71,13 @@
 @media screen and (max-width: 641px) {
     .container {
         max-width: 300px;
+    }
+    .pagination .pagination__link {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 138%;
+        width: 35px;
+        height: 35px;
     }
     .inner > section {
         margin-bottom: calc(var(--section-gap) / 2);

@@ -14,12 +14,12 @@
                     <nav class="nav">
                         <h3 class="nav__title">Все услуги</h3>
                         <ul class="nav__list">
-                            <li class="nav__item"><a href="" class="nav__link">Отопление</a></li>
-                            <li class="nav__item"><a href="" class="nav__link">Водоснабжение</a></li>
-                            <li class="nav__item"><a href="" class="nav__link">Автономные канализации</a></li>
-                            <li class="nav__item"><a href="" class="nav__link">Теплые полы</a></li>
-                            <li class="nav__item"><a href="" class="nav__link">Сборка Котельной</a></li>
-                            <li class="nav__item"><a href="" class="nav__link">Электричесвто</a></li>
+                            <li class="nav__item"><a href="{{route("service")}}" class="nav__link">Отопление</a></li>
+                            <li class="nav__item"><a href="{{route("service")}}" class="nav__link">Водоснабжение</a></li>
+                            <li class="nav__item"><a href="{{route("service")}}" class="nav__link">Автономные канализации</a></li>
+                            <li class="nav__item"><a href="{{route("service")}}" class="nav__link">Теплые полы</a></li>
+                            <li class="nav__item"><a href="{{route("service")}}" class="nav__link">Сборка Котельной</a></li>
+                            <li class="nav__item"><a href="{{route("service")}}" class="nav__link">Электричесвто</a></li>
                             <li class="nav__item"><a href="{{route("service")}}" class="nav__link">Дизайн проект</a></li>
                         </ul>
                     </nav>
@@ -44,7 +44,7 @@
                             <img src="img/blog.png" alt="" class="card__img">
                             <p class="card__title">Сделали квартиру в танхаусе</p>
                             <p class="card__date">09.06.2022</p>
-                            <a href="" class="btn btn-hover">Подробнее</a>
+                            <a href="{{route("blog-details")}}" class="btn btn-hover">Подробнее</a>
                         </div>
                     </li>
                     <li class="blog__item">
@@ -52,7 +52,7 @@
                             <img src="img/blog.png" alt="" class="card__img">
                             <p class="card__title">Сделали квартиру в танхаусе</p>
                             <p class="card__date">09.06.2022</p>
-                            <a href="" class="btn btn-hover">Подробнее</a>
+                            <a href="{{route("blog-details")}}" class="btn btn-hover">Подробнее</a>
                         </div>
                     </li>
                     <li class="blog__item">
@@ -60,7 +60,7 @@
                             <img src="img/blog.png" alt="" class="card__img">
                             <p class="card__title">Сделали квартиру в танхаусе</p>
                             <p class="card__date">09.06.2022</p>
-                            <a href="" class="btn btn-hover">Подробнее</a>
+                            <a href="{{route("blog-details")}}" class="btn btn-hover">Подробнее</a>
                         </div>
                     </li>
                 </ul>
