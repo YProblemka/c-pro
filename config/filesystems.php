@@ -44,10 +44,10 @@ return [
             'throw' => false,
         ],
 
-        'service_img' => [
+        'img' => [
             'driver' => 'local',
-            'root' => storage_path('app/service_img'),
-            "url" => "/service_data"
+            'root' => storage_path('app/img'),
+            "url" => "/img"
         ],
 
         's3' => [
