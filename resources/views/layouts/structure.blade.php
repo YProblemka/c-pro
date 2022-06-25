@@ -20,7 +20,7 @@
                 <div class="header__wrapper">
                     <a href="{{route("index")}}" class="header__logo"><img src="img/logo.svg" alt="Сервис C PRO"></a>
                     <div class="header__links">
-                        <a href="tel:{{App\Models\Setting::getByName("phone")->value}}">{{App\Models\Setting::getByName("phone")->value}}</a>
+                        <a href="tel:{{App\Models\Setting::getByName("phone1")->value}}">{{App\Models\Setting::getByName("phone1")->value}}</a>
                         <a href="{{App\Models\Setting::getByName("telegram")->value}}">Наш телеграм <img src="img/telegram.svg" alt="Телеграм"></a>
                     </div>
                 </div>
@@ -59,15 +59,15 @@
                         <div class="footer__bottom-right">
                             <div class="footer__list-wrapper footer__list-wrapper--contacts">
                                 <ul class="footer__list">
-                                    <li><a href="tel:{{App\Models\Setting::getByName("phone")->value}}">{{App\Models\Setting::getByName("phone")->value}} <img src="img/phone.svg"
+                                    <li><a href="tel:{{App\Models\Setting::getByName("phone1")->value}}">{{App\Models\Setting::getByName("phone1")->value}} <img src="img/phone.svg"
                                                 alt=""></a></li>
-                                    <li><a href="tel:{{App\Models\Setting::getByName("phone")->value}}">{{App\Models\Setting::getByName("phone")->value}} <img src="img/phone.svg"
+                                    <li><a href="tel:{{App\Models\Setting::getByName("phone2")->value}}">{{App\Models\Setting::getByName("phone2")->value}} <img src="img/phone.svg"
                                                 alt=""></a></li>
                                 </ul>
                                 <ul class="footer__list">
-                                    <li><a href="mailto:{{App\Models\Setting::getByName("email")->value}}">{{App\Models\Setting::getByName("email")->value}} <img src="img/mail.svg"
+                                    <li><a href="mailto:{{App\Models\Setting::getByName("email1")->value}}">{{App\Models\Setting::getByName("email1")->value}} <img src="img/mail.svg"
                                                 alt=""></a></li>
-                                    <li><a href="mailto:{{App\Models\Setting::getByName("email")->value}}">{{App\Models\Setting::getByName("email")->value}} <img src="img/mail.svg"
+                                    <li><a href="mailto:{{App\Models\Setting::getByName("email2")->value}}">{{App\Models\Setting::getByName("email2")->value}} <img src="img/mail.svg"
                                                 alt=""></a></li>
                                 </ul>
                             </div>

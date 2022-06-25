@@ -1,8 +1,8 @@
-// $.ajaxSetup({
-//     headers: {
-//         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-//     },
-// });
+$.ajaxSetup({
+    headers: {
+        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+    },
+});
 function update() {
     $(".save-btn").hide();
     $(".delete-btn").hide();
@@ -69,6 +69,8 @@ function update() {
     $(".save-btn-settings").click(function () {
         const name = $(this).attr("data-name");
         const input = $(this).siblings(".app-doc-meta").find(".change-input-value")[0];
+        const value = $(input).siblings().find(".value")[0];
+
 
         var fd = new FormData();
 
@@ -83,8 +85,7 @@ function update() {
             data: fd,
             url: "/action/setting/" + name,
             success: function (data) {
-                // value.innerHTML = data.response.name;
-                alert(data.response);
+                value.innerText = data.response.value;
             },
             error: function (data) {
                 if (data.status == 422) {

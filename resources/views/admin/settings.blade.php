@@ -15,7 +15,7 @@
                     <h4 class="app-doc-title truncate mb-0" title="Телеграм"><span>Телеграм</span></h4>
                     <div class="app-doc-meta">
                         <ul class="list-unstyled mb-0">
-                            <li><span class="text-muted">uri:</span> {{App\Models\Setting::getByName("telegram")->value}}</li>
+                            <li><span class="text-muted">uri:</span> <span class="value">{{App\Models\Setting::getByName("telegram")->value}}</span></li>
                             <input type="text" class="change-input-value" placeholder="Новый uri" value="{{App\Models\Setting::getByName("telegram")->value}}">
                         </ul>
                     </div>
@@ -30,8 +30,8 @@
                     <h4 class="app-doc-title truncate mb-0" title="Телеграм"><span>Телефон 1</span></h4>
                     <div class="app-doc-meta">
                         <ul class="list-unstyled mb-0">
-                            <li><span class="text-muted">uri:</span> {{App\Models\Setting::getByName("phone")->value}}</li>
-                            <input type="text" class="change-input-value" placeholder="Новый uri" value="{{App\Models\Setting::getByName("phone")->value}}">
+                            <li><span class="text-muted">tel:</span> <span class="value">{{App\Models\Setting::getByName("phone1")->value}}</span></li>
+                            <input type="text" class="change-input-value" placeholder="Новый uri" value="{{App\Models\Setting::getByName("phone1")->value}}">
                         </ul>
                     </div>
                     <button class="change-btn change-btn-settings btn btn-primary">Изменить</button>
@@ -45,8 +45,8 @@
                     <h4 class="app-doc-title truncate mb-0" title="Телеграм"><span>Телефон 2</span></h4>
                     <div class="app-doc-meta">
                         <ul class="list-unstyled mb-0">
-                            <li><span class="text-muted">uri:</span> {{App\Models\Setting::getByName("phone")->value}}</li>
-                            <input type="text" class="change-input-value" placeholder="Новый uri" value="{{App\Models\Setting::getByName("phone")->value}}">
+                            <li><span class="text-muted">tel:</span> <span class="value">{{App\Models\Setting::getByName("phone2")->value}}</span></li>
+                            <input type="text" class="change-input-value" placeholder="Новый uri" value="{{App\Models\Setting::getByName("phone2")->value}}">
                         </ul>
                     </div>
                     <button class="change-btn change-btn-settings btn btn-primary">Изменить</button>
@@ -60,8 +60,8 @@
                     <h4 class="app-doc-title truncate mb-0" title="Телеграм"><span>Почта 1</span></h4>
                     <div class="app-doc-meta">
                         <ul class="list-unstyled mb-0">
-                            <li><span class="text-muted">uri:</span> {{App\Models\Setting::getByName("email")->value}}</li>
-                            <input type="text" class="change-input-value" placeholder="Новый uri" value="{{App\Models\Setting::getByName("email")->value}}">
+                            <li><span class="text-muted">email:</span> <span class="value">{{App\Models\Setting::getByName("email1")->value}}</span></li>
+                            <input type="text" class="change-input-value" placeholder="Новый uri" value="{{App\Models\Setting::getByName("email1")->value}}">
                         </ul>
                     </div>
                     <button class="change-btn change-btn-settings btn btn-primary">Изменить</button>
@@ -75,8 +75,8 @@
                     <h4 class="app-doc-title truncate mb-0" title="Телеграм"><span>Почта 2</span></h4>
                     <div class="app-doc-meta">
                         <ul class="list-unstyled mb-0">
-                            <li><span class="text-muted">uri:</span> {{App\Models\Setting::getByName("email")->value}}</li>
-                            <input type="text" class="change-input-value" placeholder="Новый uri" value="{{App\Models\Setting::getByName("email")->value}}">
+                            <li><span class="text-muted">email:</span> <span class="value">{{App\Models\Setting::getByName("email2")->value}}</span></li>
+                            <input type="text" class="change-input-value" placeholder="Новый uri" value="{{App\Models\Setting::getByName("email2")->value}}">
                         </ul>
                     </div>
                     <button class="change-btn change-btn-settings btn btn-primary">Изменить</button>
