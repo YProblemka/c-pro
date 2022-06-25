@@ -25,6 +25,6 @@ class Service extends Model
      */
     public static function saveImg(UploadedFile|string $img): string
     {
-        return Storage::disk("service_img")->putFile("/", $img);
+        return Storage::disk("img")->putFile("/", $img);
     }
 }
