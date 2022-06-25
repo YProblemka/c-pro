@@ -16,11 +16,19 @@ class SettingSeeder extends Seeder
     {
         $settings = [
             [
-                "name" => "phone",
+                "name" => "phone1",
                 "value" => "+7 (912) 987-65-43"
             ],
             [
-                "name" => "email",
+                "name" => "phone2",
+                "value" => "+7 (912) 987-65-43"
+            ],
+            [
+                "name" => "email1",
+                "value" => "example@gmail.com"
+            ],
+            [
+                "name" => "email2",
                 "value" => "example@gmail.com"
             ],
             [

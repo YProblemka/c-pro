@@ -24,14 +24,8 @@ class SettingRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name" => "required|string|min:3|max:60",
             "value" => "required|string|min:3|max:60"
         ];
-    }
-
-    public function getName()
-    {
-        return $this->input("name");
     }
 
     public function getValue()
