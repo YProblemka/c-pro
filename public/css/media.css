@@ -1,0 +1,201 @@
+@media screen and (max-width: 1281px) {
+    .container {
+        max-width: 960px;
+    }
+    aside {
+        padding: 30px 30px 30px 20px;
+    }
+    .card .card__img {
+        height: 150px;
+    }
+    .service .service__img {
+        width: 310px;
+    }
+    .footer__top > img {
+        width: 550px;
+    }
+}
+
+@media screen and (max-width: 961px) {
+    .container {
+        max-width: 640px;
+    }
+    .service{
+        display: flex;
+        flex-direction: column;
+    }
+    .service .service__img {
+        width: 100%;
+    }
+    .jb h1 {
+        text-align: left;
+        padding: 15px;
+        max-width: 420px;
+    }
+    .index-screen {
+        flex-direction: column;
+        gap: 40px;
+    }
+    aside {
+        padding: 30px 0px 45px 20px;
+    }
+    .align-right {
+        margin-top: 20px;
+    }
+    .card .card__img {
+        height: 120px;
+    }
+    .nav .nav__list {
+        display: grid;
+        grid-template-columns: 250px 250px;
+    }
+    .nav .nav__item {
+        width: unset;
+    }
+    .footer__top > img {
+        width: 200px;
+        object-position: 60%;
+    }
+    .grid {
+        grid-template-rows: 170px 170px;
+    }
+    .footer__list-wrapper {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .footer__list li {
+        max-width: none;
+    }
+}
+
+@media screen and (max-width: 641px) {
+    .container {
+        max-width: 300px;
+    }
+    .pagination .pagination__link {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 138%;
+        width: 35px;
+        height: 35px;
+    }
+    .inner > section {
+        margin-bottom: calc(var(--section-gap) / 2);
+    }
+    .subtitle {
+        font-size: 14px;
+        line-height: 138%;
+        margin-top: -10px;
+    }
+    .index-screen {
+        gap: 20px;
+    }
+    .header .header__links {
+        font-size: 14px;
+        line-height: 138%;
+    }
+    .jb h1 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .nav .nav__title {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 10px;
+    }
+    .nav .nav__link {
+        font-size: 14px;
+        line-height: 138%;
+    }
+    .nav .nav__list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    aside {
+        padding: 20px 0 20px 20px;
+    }
+    section h2 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .grid {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        height: unset;
+    }
+    .card {
+        gap: 4px;
+    }
+    .card .card__title {
+        font-size: 16px;
+    }
+    .card .card__date {
+        font-size: 14px;
+        line-height: 138%;
+    }
+    .btn {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 138%;
+        padding: 5px 20px;
+        letter-spacing: unset;
+    }
+    .load-more {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 138%;
+        gap: 5px;
+    }
+    .load-more img {
+        width: 20px;
+        height: 20px;
+    }
+    .service .service__paragraph {
+        font-size: 14px;
+        line-height: 138%;
+    }
+    .service .service__text {
+        gap: 10px;
+    }
+    .footer__top > img {
+        display: none;
+    }
+    .form .form__title {
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .form input {
+        font-size: 14px;
+        line-height: 138%;
+    }
+    .blog .blog__list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+    }
+    .card .card__img {
+        height: 130px;
+    }
+    .footer__bottom {
+        flex-direction: column-reverse;
+        gap: 10px;
+        align-items: stretch;
+    }
+    .footer__list-wrapper--contacts {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .footer__list a {
+        font-size: 14px;
+        line-height: 138%;
+    }
+    .footer__bottom-right > a {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 138%;
+    }
+}
