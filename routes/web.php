@@ -28,3 +28,7 @@ Route::get('/service', function () {
 Route::get('/blog-details', function () {
     return view('blog-details');
 })->name("blog-details");
+
+Route::get('/admin', function () {
+    return view('admin/categories');
+})->name("admin");
