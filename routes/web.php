@@ -55,5 +55,9 @@ Route::prefix("action")->group(function () {
         Route::apiResource("post", PostController::class)->missing(
             fn() => response()->json(["message" => "No query results for model \"Post\""], 404)
         )->except(["destroy", "store"]);
+
+        Route::post('/post/add_img', [ServiceController::class, 'addImg'])->name("addImg");
+
+        Route::post('/post/del_img', [ServiceController::class, 'delImg'])->name("delImg");
     });
 });

@@ -15,6 +15,13 @@ class Post extends Model
         'date'
     ];
 
+    protected $appends = ['imgs'];
+
+    public function getImgsAttribute(): string
+    {
+        return $this->imgs();
+    }
+
     public function imgs(): Collection
     {
         return $this->hasMany(Post_Img::class)->getResults();
