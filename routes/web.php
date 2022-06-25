@@ -33,9 +33,9 @@ Route::get('/blog-details', function () {
     return view('blog-details');
 })->name("blog-details");
 
-Route::get('/admin', function () {
-    return view('admin/categories');
-})->name("admin");
+Route::get('/admin/settings', function () {
+    return view('admin/settings');
+})->name("admin.settings");
 
 
 Route::prefix("action")->group(function () {

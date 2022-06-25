@@ -7,7 +7,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/8a553633d6.js" crossorigin="anonymous"></script>
@@ -16,6 +15,7 @@
         integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link id="theme-style" rel="stylesheet" href="/css/admin.css">
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
 </head>
 
 <body class="app">
@@ -33,6 +33,8 @@
                                 </svg>
                             </a>
                         </div>
+
+                        {{-- search --}}
                         {{-- <div class="search-mobile-trigger d-sm-none col">
                             <i class="search-mobile-trigger-icon fas fa-search"></i>
                         </div>
@@ -44,10 +46,14 @@
                                         class="fas fa-search"></i></button>
                             </form>
                         </div> --}}
+                        {{-- search --}}
+
                         <div class="app-utilities col-auto">
                             <div class="app-utility-item">
-                                <i class="admin-name">{{ auth()->user()->getLogin() }}</i>
-                                <a class="btn app-btn-primary" style="margin-left: 10px;" href="{{ route("admin.logout") }}"><i class="fa fa-sign-out" style="color: white"></i></a>
+                                {{-- <i class="admin-name">{{ auth()->user()->getLogin() }}</i> --}}
+                                <i class="admin-name">admin</i>
+                                {{-- <a class="btn app-btn-primary" style="margin-left: 10px;" href="{{ route("admin.logout") }}"><i class="fa fa-sign-out" style="color: white"></i></a> --}}
+                                <a class="btn app-btn-primary" style="margin-left: 10px;" href=""><i class="fa fa-sign-out" style="color: white"></i></a>
                             </div>
                         </div>
                     </div>
@@ -65,46 +71,15 @@
                 </div>
                 <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
                     <ul class="app-menu list-unstyled">
-                        {{-- <li class="nav-item">
-                            <a class="{{Request::url() == route('admin.orders') ? 'active nav-link' : 'nav-link'}}" href="{{ route('admin.orders') }}">
-                                <span class="nav-icon">
-                                    <i class="fa fa-credit-card" aria-hidden="true" style="font-size: 18px;"></i>
-                                </span>
-                                <span class="nav-link-text">Заказы</span>
-                            </a>
-                        </li> --}}
                         <li class="nav-item">
-                            <a class="{{Request::url() == route('admin.makers') ? 'active nav-link' : 'nav-link'}}" href="{{ route('admin.makers') }}">
+                            <a class="{{Request::url() == route('admin.settings') ? 'active nav-link' : 'nav-link'}}" href="{{ route('admin.settings') }}">
                                 <span class="nav-icon">
-                                    <i class="fa fa-user" aria-hidden="true" style="font-size: 18px;"></i>
+                                    <i class="fa fa-address-card" aria-hidden="true" style="font-size: 18px;"></i>
                                 </span>
-                                <span class="nav-link-text">Производители</span>
+                                <span class="nav-link-text">Контакты</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="{{Request::url() == route('admin.departments') ? 'active nav-link' : 'nav-link'}}" href="{{ route('admin.departments') }}">
-                                <span class="nav-icon">
-                                    <i class="fas fa-sitemap" style="font-size: 18px;"></i>
-                                </span>
-                                <span class="nav-link-text">Отделы</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="{{Request::url() == route('admin.categories') ? 'active nav-link' : 'nav-link'}}" href="{{ route('admin.categories') }}">
-                                <span class="nav-icon">
-                                    <i class="fa fa-list-alt" aria-hidden="true" style="font-size: 18px;"></i>
-                                </span>
-                                <span class="nav-link-text">Категории</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="{{Request::url() == route('admin.products') ? 'active nav-link' : 'nav-link'}}" href="{{ route('admin.products') }}">
-                                <span class="nav-icon">
-                                    <i class="fa fa-tags" aria-hidden="true" style="font-size: 18px;"></i>
-                                </span>
-                                <span class="nav-link-text">Продукты</span>
-                            </a>
-                        </li>
+                       
                     </ul>
                 </nav>
             </div>

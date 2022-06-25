@@ -12,7 +12,7 @@
     --bs-white: #fff;
     --bs-gray: #6c757d;
     --bs-gray-dark: #343a40;
-    --bs-primary: #15a362;
+    --bs-primary: #204f09;
     --bs-secondary: #5d6778;
     --bs-success: #5cb377;
     --bs-danger: #d26d69;
@@ -2684,8 +2684,8 @@ progress {
 
 .btn-primary {
     color: #000;
-    background-color: #15a362;
-    border-color: #15a362
+    background-color: #204f09;
+    border-color: #204f09
 }
 
 .btn-primary:hover {
@@ -2713,8 +2713,8 @@ progress {
 
 .btn-primary:disabled, .btn-primary.disabled {
     color: #000;
-    background-color: #15a362;
-    border-color: #15a362
+    background-color: #204f09;
+    border-color: #204f09
 }
 
 .btn-secondary {
@@ -2893,14 +2893,14 @@ progress {
 }
 
 .btn-outline-primary {
-    color: #15a362;
-    border-color: #15a362
+    color: #204f09;
+    border-color: #204f09
 }
 
 .btn-outline-primary:hover {
     color: #000;
-    background-color: #15a362;
-    border-color: #15a362
+    background-color: #204f09;
+    border-color: #204f09
 }
 
 .btn-check:focus+.btn-outline-primary, .btn-outline-primary:focus {
@@ -2909,8 +2909,8 @@ progress {
 
 .btn-check:checked+.btn-outline-primary, .btn-check:active+.btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show {
     color: #000;
-    background-color: #15a362;
-    border-color: #15a362
+    background-color: #204f09;
+    border-color: #204f09
 }
 
 .btn-check:checked+.btn-outline-primary:focus, .btn-check:active+.btn-outline-primary:focus, .btn-outline-primary:active:focus, .btn-outline-primary.active:focus, .btn-outline-primary.dropdown-toggle.show:focus {
@@ -2918,7 +2918,7 @@ progress {
 }
 
 .btn-outline-primary:disabled, .btn-outline-primary.disabled {
-    color: #15a362;
+    color: #204f09;
     background-color: transparent
 }
 
@@ -5659,7 +5659,7 @@ progress {
 }
 
 .link-primary {
-    color: #15a362
+    color: #204f09
 }
 
 .link-primary:hover, .link-primary:focus {
@@ -6047,7 +6047,7 @@ progress {
 }
 
 .border-primary {
-    border-color: #15a362 !important
+    border-color: #204f09 !important
 }
 
 .border-secondary {
@@ -6769,7 +6769,7 @@ progress {
 }
 
 .text-primary {
-    color: #15a362 !important
+    color: #204f09 !important
 }
 
 .text-secondary {
@@ -6833,7 +6833,7 @@ progress {
 }
 
 .bg-primary {
-    background-color: #15a362 !important
+    background-color: #204f09 !important
 }
 
 .bg-secondary {
@@ -9421,7 +9421,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 a {
-    color: #15a362;
+    color: #204f09;
     text-decoration: none
 }
 
@@ -9494,7 +9494,7 @@ a.app-link {
 }
 
 a.app-link:hover {
-    color: #15a362;
+    color: #204f09;
     -webkit-text-decoration-color: rgba(21, 163, 98, .8);
     text-decoration-color: rgba(21, 163, 98, .8)
 }
@@ -9525,9 +9525,9 @@ button.close:focus {
 }
 
 .app-btn-primary {
-    background: #15a362;
+    background: #204f09;
     color: #fff;
-    border-color: #15a362
+    border-color: #204f09
 }
 
 .app-btn-primary:hover {
@@ -9543,19 +9543,19 @@ button.close:focus {
 }
 
 .app-btn-secondary:hover {
-    color: #15a362;
-    border: 1px solid #15a362;
+    color: #204f09;
+    border: 1px solid #204f09;
     background: #fff
 }
 
 .btn-light {
     background: #f5f6fe;
-    color: #15a362
+    color: #204f09
 }
 
 .btn-light:hover {
     background: #f5f6fe;
-    color: #15a362
+    color: #204f09
 }
 
 .form-control {
@@ -9573,8 +9573,8 @@ button.close:focus {
 }
 
 .form-check-input:checked {
-    background-color: #15a362;
-    border-color: #15a362
+    background-color: #204f09;
+    border-color: #204f09
 }
 
 .dropdown-menu {
@@ -9611,7 +9611,6 @@ button.close:focus {
 .app-header {
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
     border-bottom: 1px solid #e7e9ed;
-    height: 56px;
     background: #fff
 }
 
@@ -9648,7 +9647,7 @@ button.close:focus {
 
 .app-search-form .search-btn:active, .app-search-form .search-btn:focus, .app-search-form .search-btn:hover {
     outline: none !important;
-    color: #15a362;
+    color: #204f09;
     box-shadow: none
 }
 
@@ -9768,7 +9767,7 @@ button.close:focus {
 .app-notifications-dropdown .app-icon-holder {
     display: inline-block;
     background: #edfdf6;
-    color: #15a362;
+    color: #204f09;
     width: 36px;
     height: 36px;
     padding-top: 4px;
@@ -9816,7 +9815,7 @@ button.close:focus {
         opacity: .8
     }
     .search-mobile-trigger:hover {
-        color: #15a362;
+        color: #204f09;
         -webkit-opacity: 1;
         -moz-opacity: 1;
         opacity: 1
@@ -9960,9 +9959,9 @@ button.close:focus {
 }
 
 .app-nav .nav-link.active {
-    color: #15a362;
+    color: #204f09;
     background: #edfdf6;
-    border-left: 3px solid #15a362;
+    border-left: 3px solid #204f09;
     font-weight: 500
 }
 
@@ -9972,7 +9971,7 @@ button.close:focus {
 }
 
 .app-nav .nav-link:hover {
-    color: #15a362
+    color: #204f09
 }
 
 .app-nav .nav-icon {
@@ -10050,11 +10049,11 @@ button.close:focus {
 }
 
 .app-nav .submenu-link.active {
-    color: #15a362
+    color: #204f09
 }
 
 .app-nav .submenu-link.active:before {
-    background-color: #15a362
+    background-color: #204f09
 }
 
 .app-sidepanel-footer {
@@ -10156,7 +10155,7 @@ button.close:focus {
 }
 
 .app-card.border-left-decoration {
-    border-left: 3px solid #15a362
+    border-left: 3px solid #204f09
 }
 
 .app-card-link {
@@ -10278,7 +10277,7 @@ button.close:focus {
 .app-card .app-icon-holder {
     display: inline-block;
     background: #edfdf6;
-    color: #15a362;
+    color: #204f09;
     width: 50px;
     height: 50px;
     padding-top: 10px;
@@ -10477,8 +10476,8 @@ button.close:focus {
 }
 
 .app-nav-tabs .nav-link.active {
-    color: #15a362;
-    border-bottom: 2px solid #15a362
+    color: #204f09;
+    border-bottom: 2px solid #204f09
 }
 
 .app-nav-tabs .nav-link.active:hover {
@@ -10487,7 +10486,7 @@ button.close:focus {
 
 .app-nav-tabs .nav-link:hover {
     background: #edfdf6;
-    color: #15a362
+    color: #204f09
 }
 
 .app-pagination .pagination {
@@ -10538,7 +10537,7 @@ button.close:focus {
 .app-card-accordion .faq-accordion .card-toggle {
     padding: 0;
     text-decoration: none;
-    color: #15a362;
+    color: #204f09;
     font-size: 1rem
 }
 
@@ -10802,7 +10801,7 @@ button.close:focus {
 .change-btn, .save-btn{
     padding: 0.2rem 0.5rem;
     color: white;
-    background: #15a362;
+    background: #204f09;
     margin-top: 8px;
     margin-right: 5px;
     cursor: pointer;
@@ -10835,8 +10834,8 @@ button.close:focus {
 }
 
 .pagination .active a, .pagination .active span, .pagination .active a:hover, .pagination .active span:hover, .pagination .active a:focus, .pagination .active span:focus {
-    background-color: #15a362;
-    border-color: #15a362;
+    background-color: #204f09;
+    border-color: #204f09;
     color: #FFFFFF;
     cursor: default;
     z-index: 2;
@@ -10856,7 +10855,7 @@ button.close:focus {
 }
 
 .pagination li a:hover {
-    background: #15a362;
+    background: #204f09;
     color: #fff;
 }
 
@@ -10869,7 +10868,7 @@ button.close:focus {
     right: 16px;
     padding: 0.2rem 0.5rem;
     color: white;
-    background: #15a362;
+    background: #204f09;
     margin-top: 8px;
     cursor: pointer;
 }
