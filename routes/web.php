@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,7 +39,11 @@ Route::get('/admin', function () {
 Route::prefix("action")->group(function () {
     Route::middleware("auth:admin")->group(function () {
         Route::apiResource("service", ServiceController::class)->missing(
-            fn() => response()->json(["message" => "No query results for model \"Product\""], 404)
+            fn() => response()->json(["message" => "No query results for model \"Service\""], 404)
         );
+
+        Route::apiResource("setting", SettingController::class)->missing(
+            fn() => response()->json(["message" => "No query results for model \"Setting\""], 404)
+        )->except(["destroy", "store"]);
     });
 });
