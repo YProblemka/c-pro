@@ -44,6 +44,12 @@ return [
             'throw' => false,
         ],
 
+        'service_img' => [
+            'driver' => 'local',
+            'root' => storage_path('app/service_img'),
+            "url" => "/service_data"
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

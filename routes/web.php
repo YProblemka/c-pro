@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +33,12 @@ Route::get('/blog-details', function () {
 Route::get('/admin', function () {
     return view('admin/categories');
 })->name("admin");
+
+
+Route::prefix("action")->group(function () {
+    Route::middleware("auth:admin")->group(function () {
+        Route::apiResource("service", ServiceController::class)->missing(
+            fn() => response()->json(["message" => "No query results for model \"Product\""], 404)
+        );
+    });
+});
