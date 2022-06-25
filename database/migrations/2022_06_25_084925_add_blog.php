@@ -23,7 +23,7 @@ return new class extends Migration
         Schema::create('post_imgs', function (Blueprint $table) {
             $table->id();
             $table->string('img_src');
-             $table->foreignId("post_id")->references('id')->on('posts');
+            $table->foreignId("post_id")->references('id')->on('posts');
             $table->timestamps();
         });
     }

@@ -50,6 +50,12 @@ return [
             "url" => "/img"
         ],
 
+        'post_img' => [
+            'driver' => 'local',
+            'root' => storage_path('app/post_img'),
+            "url" => "/post_img"
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -76,7 +82,6 @@ return [
     */
 
     'links' => [
-        public_path('storage') => storage_path('app/public'),
     ],
 
 ];
