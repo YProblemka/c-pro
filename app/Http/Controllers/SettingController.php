@@ -38,7 +38,6 @@ class SettingController extends Controller
      */
     public function update(SettingRequest $request, Setting $setting): JsonResponse
     {
-        $setting->name = $request->getName();
         $setting->value = $request->getValue();
 
         $setting->save();

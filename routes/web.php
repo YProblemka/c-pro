@@ -39,12 +39,14 @@ Route::get('/admin', function () {
 
 
 Route::prefix("action")->group(function () {
-    Route::middleware("auth:admin")->group(function () {
+//    Route::middleware("auth:admin")->group(function () {
         Route::apiResource("service", ServiceController::class)->missing(
             fn() => response()->json(["message" => "No query results for model \"Service\""], 404)
         );
 
-        Route::apiResource("setting", SettingController::class)->missing(
+        Route::apiResource("setting", SettingController::class)->scoped([
+            'setting' => 'name',
+        ])->missing(
             fn() => response()->json(["message" => "No query results for model \"Setting\""], 404)
         )->except(["destroy", "store"]);
 
@@ -59,5 +61,5 @@ Route::prefix("action")->group(function () {
         Route::post('/post/add_img', [ServiceController::class, 'addImg'])->name("addImg");
 
         Route::post('/post/del_img', [ServiceController::class, 'delImg'])->name("delImg");
-    });
+//    });
 });
