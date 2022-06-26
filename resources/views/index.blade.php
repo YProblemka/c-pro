@@ -14,23 +14,17 @@
                     <nav class="nav">
                         <h3 class="nav__title">Все услуги</h3>
                         <ul class="nav__list">
-                            <li class="nav__item"><a href="{{ route('service') }}" class="nav__link">Отопление</a></li>
-                            <li class="nav__item"><a href="{{ route('service') }}" class="nav__link">Водоснабжение</a></li>
-                            <li class="nav__item"><a href="{{ route('service') }}" class="nav__link">Автономные
-                                    канализации</a></li>
-                            <li class="nav__item"><a href="{{ route('service') }}" class="nav__link">Теплые полы</a></li>
-                            <li class="nav__item"><a href="{{ route('service') }}" class="nav__link">Сборка Котельной</a>
-                            </li>
-                            <li class="nav__item"><a href="{{ route('service') }}" class="nav__link">Электричесвто</a></li>
-                            <li class="nav__item"><a href="{{ route('service') }}" class="nav__link">Дизайн проект</a></li>
+                            @foreach (App\Models\Service::all()->sortBy("name") as $item)
+                                <li class="nav__item"><a href="{{ route("service", ["service"=>$item->id])  }}" class="nav__link">{{$item->name}}</a></li>
+                            @endforeach
                         </ul>
                     </nav>
                 </aside>
                 <div class="our-works">
                     <h2>Наши работы</h2>
                     <ul class="our-works__list grid">
-                        @foreach (App\Models\OurWork::all()->sortBy("id") as $item)
-                            <li><img src="{{$item->getImgSrc()}}"></li>
+                        @foreach (App\Models\OurWork::all()->sortBy('id') as $item)
+                            <li><img src="{{ $item->getImgSrc() }}"></li>
                         @endforeach
                     </ul>
                 </div>

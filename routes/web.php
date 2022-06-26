@@ -78,4 +78,10 @@ Route::prefix("administration")->name("admin.")->group(function () {
         })->name("ourWorks");
     });
 
+    Route::middleware("auth:admin")->group(function () {
+        Route::get('/services', function () {
+            return view('admin/services');
+        })->name("services");
+    });
+
 });

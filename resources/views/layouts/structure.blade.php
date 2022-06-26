@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.svg" sizes="48x48" type="image/x-icon">
+    <link rel="icon" href="/favicon.svg" sizes="48x48" type="image/x-icon">
 
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/media.css">
 
     <title>@yield('title')</title>
 </head>
@@ -18,10 +18,13 @@
         <header class="header">
             <div class="container">
                 <div class="header__wrapper">
-                    <a href="{{route("index")}}" class="header__logo"><img src="img/logo.svg" alt="Сервис C PRO"></a>
+                    <a href="{{ route('index') }}" class="header__logo"><img src="/img/logo.svg"
+                            alt="Сервис C PRO"></a>
                     <div class="header__links">
-                        <a href="tel:{{App\Models\Setting::getByName("phone1")->value}}">{{App\Models\Setting::getByName("phone1")->value}}</a>
-                        <a href="{{App\Models\Setting::getByName("telegram")->value}}">Наш телеграм <img src="img/telegram.svg" alt="Телеграм"></a>
+                        <a
+                            href="tel:{{ App\Models\Setting::getByName('phone1')->value }}">{{ App\Models\Setting::getByName('phone1')->value }}</a>
+                        <a href="{{ App\Models\Setting::getByName('telegram')->value }}">Наш телеграм <img
+                                src="/img/telegram.svg" alt="Телеграм"></a>
                     </div>
                 </div>
             </div>
@@ -40,38 +43,47 @@
                             <input type="text" placeholder="Напишите, что вас интересует">
                             <button type="submit" class="btn btn-hover">Отправить</button>
                         </form>
-                        <img src="img/footer.png" alt="Оставьте заявку">
+                        <img src="/img/footer.png" alt="Оставьте заявку">
                     </div>
                     <div class="footer__bottom">
                         <div class="footer__list-wrapper">
-                            <ul class="footer__list">
-                                <li><a href="">Отопление</a></li>
-                                <li><a href="">Водоснабжение</a></li>
-                                <li><a href="">Автономные канализации</a></li>
-                                <li><a href="">Теплые полы</a></li>
-                            </ul>
-                            <ul class="footer__list">
-                                <li><a href="">Сборка Котельной</a></li>
-                                <li><a href="">Электричесвто</a></li>
-                                <li><a href="">Дизайн проект</a></li>
-                            </ul>
+                            @php
+                                $i = 0;
+                            @endphp
+                            @foreach (App\Models\Service::all()->sortBy('name') as $item)
+                                @php
+                                    $i++;
+                                @endphp
+                                @if ($i == 1)
+                                    <ul class="footer__list">
+                                @endif
+                                <li><a href="{{ route('service', ['service' => $item->id]) }}">{{ $item->name }}</a>
+                                </li>
+                                @if ($i == 4)
+                                    </ul>
+                                    @php
+                                        $i = 0;
+                                    @endphp
+                                @endif
+                            @endforeach
                         </div>
                         <div class="footer__bottom-right">
                             <div class="footer__list-wrapper footer__list-wrapper--contacts">
                                 <ul class="footer__list">
-                                    <li><a href="tel:{{App\Models\Setting::getByName("phone1")->value}}">{{App\Models\Setting::getByName("phone1")->value}} <img src="img/phone.svg"
-                                                alt=""></a></li>
-                                    <li><a href="tel:{{App\Models\Setting::getByName("phone2")->value}}">{{App\Models\Setting::getByName("phone2")->value}} <img src="img/phone.svg"
-                                                alt=""></a></li>
+                                    <li><a href="tel:{{ App\Models\Setting::getByName('phone1')->value }}">{{ App\Models\Setting::getByName('phone1')->value }}
+                                            <img src="/img/phone.svg" alt=""></a></li>
+                                    <li><a href="tel:{{ App\Models\Setting::getByName('phone2')->value }}">{{ App\Models\Setting::getByName('phone2')->value }}
+                                            <img src="/img/phone.svg" alt=""></a></li>
                                 </ul>
                                 <ul class="footer__list">
-                                    <li><a href="mailto:{{App\Models\Setting::getByName("email1")->value}}">{{App\Models\Setting::getByName("email1")->value}} <img src="img/mail.svg"
-                                                alt=""></a></li>
-                                    <li><a href="mailto:{{App\Models\Setting::getByName("email2")->value}}">{{App\Models\Setting::getByName("email2")->value}} <img src="img/mail.svg"
-                                                alt=""></a></li>
+                                    <li><a href="mailto:{{ App\Models\Setting::getByName('email1')->value }}">{{ App\Models\Setting::getByName('email1')->value }}
+                                            <img src="/img/mail.svg" alt=""></a></li>
+                                    <li><a href="mailto:{{ App\Models\Setting::getByName('email2')->value }}">{{ App\Models\Setting::getByName('email2')->value }}
+                                            <img src="/img/mail.svg" alt=""></a></li>
                                 </ul>
                             </div>
-                            <a href="{{App\Models\Setting::getByName("telegram")->value}}">Наш телеграм <img src="img/telegram.svg" alt="Телеграм"></a>
+                            <a href="{{ App\Models\Setting::getByName('telegram')->value }}">Наш телеграм <img
+                                    src="/img/telegram.svg" alt="Телеграм"></a>
                         </div>
                     </div>
                 </div>

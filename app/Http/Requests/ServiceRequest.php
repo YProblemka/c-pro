@@ -26,7 +26,7 @@ class ServiceRequest extends FormRequest
         return [
             "name" => "required|string|min:3|max:60",
             "text" => "required|string|min:3|max:3000",
-            "photo" => "required|file|max:10000|mimes:jpeg,jpg,png,svg,bmp,webp",
+            "photo" => "file|max:10000|mimes:jpeg,jpg,png,svg,bmp,webp",
         ];
     }
 

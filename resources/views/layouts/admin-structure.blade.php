@@ -87,6 +87,14 @@
                                 <span class="nav-link-text">Наши работы</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="{{Request::url() == route('admin.services') ? 'active nav-link' : 'nav-link'}}" href="{{ route('admin.services') }}">
+                                <span class="nav-icon">
+                                    <i class="fas fa-wrench" aria-hidden="true" style="font-size: 18px;"></i>
+                                </span>
+                                <span class="nav-link-text">Услуги</span>
+                            </a>
+                        </li>
                        
                     </ul>
                 </nav>

@@ -428,7 +428,7 @@ div.align-center {
 
 .service {
     display: flex;
-    align-items: stretch;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 20px;
 }
