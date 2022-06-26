@@ -47,12 +47,14 @@ return [
         'stock' => [
             'driver' => 'local',
             'root' => storage_path('app/stock'),
+            'visibility' => 'public',
             "url" => "/stock"
         ],
 
         'post_img' => [
             'driver' => 'local',
             'root' => storage_path('app/post_img'),
+            'visibility' => 'public',
             "url" => "/post_img"
         ],
 

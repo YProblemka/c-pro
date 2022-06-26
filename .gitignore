@@ -15,3 +15,5 @@ yarn-error.log
 /.vscode
 /db_pg
 /tests/coverage
+/public/post_img
+/public/stock

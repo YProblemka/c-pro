@@ -37,9 +37,7 @@ class OurWork extends Model
      */
     public static function saveImg(UploadedFile|string $img): string
     {
-        $path = Storage::disk("stock")->putFile("/", $img);
-        Storage::disk("stock")->setVisibility($path, "public");
-        return $path;
+        return Storage::disk("stock")->putFile("/", $img);
     }
 
     public static function getById($id): \Illuminate\Database\Eloquent\Builder|OurWork

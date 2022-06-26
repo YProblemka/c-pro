@@ -21,7 +21,7 @@ function update() {
             .children(".mb-0")
             .children(".change-input-value")
             .show();
-        
+
         $(this).parent().siblings(".admin-ourWorks-img").hide();
         $(this).siblings(".add-img-btn").show();
 
@@ -65,7 +65,7 @@ function update() {
         $(this).siblings(".change-btn").show();
     });
     // update settings
-   
+
     // update ourWorks
     $(".save-btn-ourWorks").click(function () {
         const input = $(this).siblings(".add-img-btn")[0];
@@ -88,7 +88,7 @@ function update() {
             },
             error: function (data) {
                 if (data.status == 422) {
-                    alert("Неверные данные");
+                    alert("Неверные данные или размер файла превышает максимально допустимый");
                 } else if (data.status == 404) {
                     alert("Не найдено");
                 } else if (data.status == 500) {
