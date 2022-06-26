@@ -80,6 +80,16 @@
     .container {
         max-width: 300px;
     }
+    .footer__bottom-right{
+        align-items: flex-start;
+    }
+    .footer__list li a{
+        flex-direction: row-reverse;
+    }
+    .footer__bottom-right .footer__list{
+        width: 100%;
+        align-items: flex-start;
+    }
     .pagination .pagination__link {
         font-weight: 400;
         font-size: 14px;
@@ -189,7 +199,7 @@
     }
     .footer__bottom {
         flex-direction: column-reverse;
-        gap: 10px;
+        gap: 30px;
         align-items: stretch;
     }
     .footer__list a {
