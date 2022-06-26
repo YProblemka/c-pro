@@ -10,7 +10,7 @@ class AdminAuthController extends Controller
     public function loginPage(Request $request)
     {
         if (Auth::guard("admin")->check()) {
-            return redirect(route("admin.products"));
+            return redirect(route("admin.settings"));
         }
         return view("admin.login");
     }
