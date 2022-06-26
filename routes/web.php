@@ -63,3 +63,9 @@ Route::prefix("action")->group(function () {
         Route::post('/post/del_img', [ServiceController::class, 'delImg'])->name("delImg");
 //    });
 });
+
+Route::prefix("administration")->name("admin.")->group(function () {
+    Route::get('/login', [AdminController::class, "login"])->name("login.page")->middleware("guest");
+    Route::post('/login', [AdminAuthController::class, "login"])->name("login")->middleware("guest");
+    Route::get('/logout', [AdminAuthController::class, "logout"])->name("logout")->middleware("auth:admin");
+});
