@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="row g-4 all-cards">
-        @foreach (App\Models\OurWork::all() as $item)
+        @foreach (App\Models\OurWork::all()->sortBy("id") as $item)
             <div class="col-6 col-md-4 col-xl-3 col-xxl-3">
                 <div class="app-card app-card-doc shadow-sm h-100">
                     <img src="{{ $item->getImgSrc() }}" class="admin-ourWorks-img">

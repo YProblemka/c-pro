@@ -29,7 +29,7 @@
                 <div class="our-works">
                     <h2>Наши работы</h2>
                     <ul class="our-works__list grid">
-                        @foreach (App\Models\OurWork::all() as $item)
+                        @foreach (App\Models\OurWork::all()->sortBy("id") as $item)
                             <li><img src="{{$item->getImgSrc()}}"></li>
                         @endforeach
                     </ul>
