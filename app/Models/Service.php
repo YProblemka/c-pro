@@ -27,7 +27,7 @@ class Service extends Model
 
     public function getImgSrc(): string
     {
-        return Storage::disk("post_img")->url($this->img_src);
+        return Storage::disk("stock")->url($this->img_src);
     }
 
      /**
@@ -38,6 +38,6 @@ class Service extends Model
      */
     public static function saveImg(UploadedFile|string $img): string
     {
-        return Storage::disk("img")->putFile("/", $img);
+        return Storage::disk("stock")->putFile("/", $img);
     }
 }

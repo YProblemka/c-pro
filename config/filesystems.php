@@ -44,10 +44,10 @@ return [
             'throw' => false,
         ],
 
-        'img' => [
+        'stock' => [
             'driver' => 'local',
-            'root' => storage_path('app/img'),
-            "url" => "/img"
+            'root' => storage_path('app/stock'),
+            "url" => "/stock"
         ],
 
         'post_img' => [
