@@ -7,6 +7,14 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminAuthController extends Controller
 {
+    public function loginPage(Request $request)
+    {
+        if (Auth::guard("admin")->check()) {
+            return redirect(route("admin.products"));
+        }
+        return view("admin.login");
+    }
+
     public function login(Request $request)
     {
         $data = $request->only(["login", "password"]);
