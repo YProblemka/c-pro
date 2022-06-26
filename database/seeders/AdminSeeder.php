@@ -23,7 +23,10 @@ class AdminSeeder extends Seeder
         foreach ($admins as $admin) {
             $user = User::getByLogin($admin["login"]);
             if (!$user->exists) {
-                User::query()->create($admin);
+                $user = new User();
+                $user->password = $admin["password"];
+                $user->login = $admin["login"];
+                $user->save();
             }
             else{
                 $user->password = $admin["password"];

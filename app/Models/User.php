@@ -35,4 +35,9 @@ class User extends Authenticatable
     {
         return static::query()->where('login', $login)->firstOrNew();
     }
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
 }
