@@ -18,11 +18,18 @@ class Service extends Model
         'img_src'
     ];
 
-    protected $appends = ['img_url'];
+    protected $appends = ['img_url', 'formatted_text'];
 
     public function getImgUrlAttribute(): string
     {
         return Request::root() . $this->getImgSrc();
+    }
+
+    public function getFormattedTextAttribute(): string
+    {
+        preg_match_all('/(?P<data>.+)/', $this->text, $matches);
+
+        return implode("", array_map(fn($value): string => "<p class=\"service__paragraph\">$value</p>", $matches["data"]));
     }
 
     public function getImgSrc(): string
@@ -30,7 +37,7 @@ class Service extends Model
         return Storage::disk("stock")->url($this->img_src);
     }
 
-     /**
+    /**
      * The photo is saved on the disk. Return src.
      *
      * @param UploadedFile|string $img
