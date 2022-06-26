@@ -36,29 +36,29 @@ Route::get('/blog-details', function () {
 
 
 Route::prefix("action")->group(function () {
-//    Route::middleware("auth:admin")->group(function () {
-    Route::apiResource("service", ServiceController::class)->missing(
-        fn() => response()->json(["message" => "No query results for model \"Service\""], 404)
-    );
+    Route::middleware("auth:admin")->group(function () {
+        Route::apiResource("service", ServiceController::class)->missing(
+            fn() => response()->json(["message" => "No query results for model \"Service\""], 404)
+        );
 
-    Route::apiResource("setting", SettingController::class)->scoped([
-        'setting' => 'name',
-    ])->missing(
-        fn() => response()->json(["message" => "No query results for model \"Setting\""], 404)
-    )->except(["destroy", "store"]);
+        Route::apiResource("setting", SettingController::class)->scoped([
+            'setting' => 'name',
+        ])->missing(
+            fn() => response()->json(["message" => "No query results for model \"Setting\""], 404)
+        )->except(["destroy", "store"]);
 
-    Route::apiResource("our_work", OurWorkController::class)->missing(
-        fn() => response()->json(["message" => "No query results for model \"OurWork\""], 404)
-    )->except(["destroy", "store"]);
+        Route::apiResource("our_work", OurWorkController::class)->missing(
+            fn() => response()->json(["message" => "No query results for model \"OurWork\""], 404)
+        )->except(["destroy", "store"]);
 
-    Route::apiResource("post", PostController::class)->missing(
-        fn() => response()->json(["message" => "No query results for model \"Post\""], 404)
-    )->except(["destroy", "store"]);
+        Route::apiResource("post", PostController::class)->missing(
+            fn() => response()->json(["message" => "No query results for model \"Post\""], 404)
+        )->except(["destroy", "store"]);
 
-    Route::post('/post/add_img', [ServiceController::class, 'addImg'])->name("addImg");
+        Route::post('/post/add_img', [ServiceController::class, 'addImg'])->name("addImg");
 
-    Route::post('/post/del_img', [ServiceController::class, 'delImg'])->name("delImg");
-//    });
+        Route::post('/post/del_img', [ServiceController::class, 'delImg'])->name("delImg");
+    });
 });
 
 Route::prefix("administration")->name("admin.")->group(function () {
@@ -69,7 +69,7 @@ Route::prefix("administration")->name("admin.")->group(function () {
     Route::middleware("auth:admin")->group(function () {
         Route::get('/admin/settings', function () {
             return view('admin/settings');
-        })->name("admin.settings");
+        })->name("settings");
     });
 
 });
