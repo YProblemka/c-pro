@@ -26,7 +26,7 @@ class OurWork extends Model
 
     public function getImgSrc(): string
     {
-        return Storage::disk("post_img")->url($this->img_src);
+        return Storage::disk("img")->url($this->img_src);
     }
 
     /**
