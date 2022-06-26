@@ -17,7 +17,7 @@ class OurWorkSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             $ourWork = OurWork::getById($i);
             if (!$ourWork->exists) {
-                OurWork::query()->create(["id" => $i, "img_src"=>""]);
+                OurWork::query()->create(["id" => $i, "img_src"=>"1.png"]);
             }
         }
     }
