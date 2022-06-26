@@ -26,8 +26,8 @@ Route::get('/blog', function () {
     return view('blog');
 })->name("blog");
 
-Route::get('/service', function () {
-    return view('service');
+Route::get('/service/{service:id}', function (\App\Models\Service $service) {
+    return view('service', compact('service'));
 })->name("service");
 
 Route::get('/blog-details', function () {
@@ -71,7 +71,7 @@ Route::prefix("administration")->name("admin.")->group(function () {
             return view('admin/settings');
         })->name("settings");
     });
-   
+
     Route::middleware("auth:admin")->group(function () {
         Route::get('/ourWorks', function () {
             return view('admin/ourWorks');
