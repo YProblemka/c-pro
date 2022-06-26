@@ -62,7 +62,10 @@ class ServiceController extends Controller
     {
         $service->name = $request->getName();
         $service->text = $request->getText();
-        $service->img_src = Service::saveImg($request->getImg());
+        $img = $request->getImg();
+        if (!is_null($img)) {
+            $service->img_src = Service::saveImg($img);
+        }
 
         $service->save();
 
