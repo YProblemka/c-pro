@@ -67,9 +67,15 @@ Route::prefix("administration")->name("admin.")->group(function () {
     Route::get('/logout', [AdminAuthController::class, "logout"])->name("logout")->middleware("auth:admin");
 
     Route::middleware("auth:admin")->group(function () {
-        Route::get('/admin/settings', function () {
+        Route::get('/settings', function () {
             return view('admin/settings');
         })->name("settings");
+    });
+   
+    Route::middleware("auth:admin")->group(function () {
+        Route::get('/ourWorks', function () {
+            return view('admin/ourWorks');
+        })->name("ourWorks");
     });
 
 });

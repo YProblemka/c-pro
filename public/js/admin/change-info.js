@@ -7,19 +7,13 @@ function update() {
     $(".save-btn").hide();
     $(".delete-btn").hide();
     $(".change-input-value").hide();
-
-    $(".change-input").hide();
-    $(".change-input-price").hide();
-    $(".change-input-ename").hide();
-    $(".change-list-department").hide();
-    $(".change-list-category").hide();
-    $(".change-list-maker").hide();
     $(".add-img-btn").hide();
-    $(".product-dcp").hide();
+
     $(".change-btn").show();
+
     $(".change-btn").click(function () {
         $(this).hide();
-        $(this).parent().siblings(".admin-product-img").hide();
+        $(this).siblings(".save-btn").show();
         $(this).siblings(".delete-btn").show();
 
         $(this)
@@ -27,39 +21,8 @@ function update() {
             .children(".mb-0")
             .children(".change-input-value")
             .show();
-
-        $(this).siblings(".change-input").show();
-        $(this)
-            .siblings(".app-doc-meta")
-            .children(".mb-0")
-            .children(".change-list-department")
-            .show();
-        $(this)
-            .siblings(".app-doc-meta")
-            .children(".mb-0")
-            .children(".change-list-category")
-            .show();
-        $(this)
-            .siblings(".app-doc-meta")
-            .children(".mb-0")
-            .children(".change-list-maker")
-            .show();
-        $(this)
-            .siblings(".app-doc-meta")
-            .children(".mb-0")
-            .children(".change-input-ename")
-            .show();
-        $(this)
-            .siblings(".app-doc-meta")
-            .children(".mb-0")
-            .children(".change-input-price")
-            .show();
-        $(this)
-            .siblings(".app-doc-meta")
-            .children(".mb-0")
-            .children(".product-dcp")
-            .show();
-        $(this).siblings(".save-btn").show();
+        
+        $(this).parent().siblings(".admin-ourWorks-img").hide();
         $(this).siblings(".add-img-btn").show();
 
         return false;
@@ -102,6 +65,46 @@ function update() {
         $(this).siblings(".change-btn").show();
     });
     // update settings
+   
+    // update ourWorks
+    $(".save-btn-ourWorks").click(function () {
+        const input = $(this).siblings(".add-img-btn")[0];
+        const img = $(this).parent().siblings(".admin-ourWorks-img")[0];
+        const id = $(this)[0].id;
+
+        var fd = new FormData();
+
+        fd.append("photo", input.files[0]);
+        fd.append("_method", "PUT");
+        $.ajax({
+            type: "POST",
+            cache: false,
+            processData: false,
+            contentType: false,
+            data: fd,
+            url: "/action/our_work/" + id,
+            success: function (data) {
+                img.src = data.response.img_url;
+            },
+            error: function (data) {
+                if (data.status == 422) {
+                    alert("Неверные данные");
+                } else if (data.status == 404) {
+                    alert("Не найдено");
+                } else if (data.status == 500) {
+                    alert("Написать разработчикам");
+                }
+            },
+        });
+
+        $(input).hide();
+        $(img).show();
+
+        $(this).hide();
+        $(this).siblings(".delete-btn").hide();
+        $(".change-btn").show();
+    });
+    // update ourWorks
 
     // example
     // $(".save-btn-settings").click(function () {

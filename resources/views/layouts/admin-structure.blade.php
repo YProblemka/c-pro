@@ -52,10 +52,8 @@
 
                         <div class="app-utilities col-auto">
                             <div class="app-utility-item">
-                                {{-- <i class="admin-name">{{ auth()->user()->getLogin() }}</i> --}}
-                                <i class="admin-name">admin</i>
-                                {{-- <a class="btn app-btn-primary" style="margin-left: 10px;" href="{{ route("admin.logout") }}"><i class="fa fa-sign-out" style="color: white"></i></a> --}}
-                                <a class="btn app-btn-primary" style="margin-left: 10px;" href=""><i class="fa fa-sign-out" style="color: white"></i></a>
+                                <i class="admin-name">{{ auth()->user()->login }}</i>
+                                <a class="btn app-btn-primary" style="margin-left: 10px;" href="{{ route("admin.logout") }}"><i class="fa fa-sign-out" style="color: white"></i></a>
                             </div>
                         </div>
                     </div>
@@ -79,6 +77,14 @@
                                     <i class="fa fa-address-card" aria-hidden="true" style="font-size: 18px;"></i>
                                 </span>
                                 <span class="nav-link-text">Контакты</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="{{Request::url() == route('admin.ourWorks') ? 'active nav-link' : 'nav-link'}}" href="{{ route('admin.ourWorks') }}">
+                                <span class="nav-icon">
+                                    <i class="far fa-images" aria-hidden="true" style="font-size: 18px;"></i>
+                                </span>
+                                <span class="nav-link-text">Наши работы</span>
                             </a>
                         </li>
                        
