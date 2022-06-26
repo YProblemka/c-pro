@@ -14,11 +14,19 @@
     .footer__top > img {
         width: 550px;
     }
+    .grid{
+        grid-template-columns: repeat(3, 225px);
+        grid-template-rows: repeat(2, 1fr);
+    }
 }
 
 @media screen and (max-width: 961px) {
     .container {
         max-width: 640px;
+    }
+    .grid{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
     }
     .service{
         display: flex;
