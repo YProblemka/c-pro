@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
 use App\Models\Post;
+use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +28,7 @@ Route::get('/blog', function () {
     return view('blog');
 })->name("blog");
 
-Route::get('/service/{service:id}', function (\App\Models\Service $service) {
+Route::get('/service/{service:id}', function (Service $service) {
     return view('service', compact('service'));
 })->name("service");
 
@@ -71,25 +72,24 @@ Route::prefix("administration")->name("admin.")->group(function () {
         Route::get('/settings', function () {
             return view('admin/settings');
         })->name("settings");
-    });
 
-    Route::middleware("auth:admin")->group(function () {
         Route::get('/ourWorks', function () {
             return view('admin/ourWorks');
         })->name("ourWorks");
-    });
 
-    Route::middleware("auth:admin")->group(function () {
         Route::get('/services', function () {
             return view('admin/services');
         })->name("services");
-    });
-    Route::middleware("auth:admin")->group(function () {
+
         Route::get('/blog', function () {
             $paginate = Post::query()->orderByDesc("updated_at")->paginate(12, ['*'], "p")
                 ->withPath(route('admin.blog'));
             return view('admin/blog', compact("paginate"));
         })->name("blog");
+
+        Route::get('/blog-details/{post:id}', function (Post $post) {
+            return view('blog-details', compact('post'));
+        })->name("blog-details");
     });
 
 });
