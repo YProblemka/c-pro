@@ -36,11 +36,11 @@
             <div class="container">
                 <div class="footer__wrapper">
                     <div class="footer__top">
-                        <form action="" class="footer__form form">
+                        <form action="{{route("email")}}" method="POST" class="footer__form form">
                             <h4 class="form__title">Закажите консультацию, оставив нам свою почту. Мы вам всё расскажем
                             </h4>
-                            <input type="email" placeholder="E-mail*" required>
-                            <input type="text" placeholder="Напишите, что вас интересует">
+                            <input type="email" name="email" placeholder="E-mail*" required>
+                            <input type="text" name="text" placeholder="Напишите, что вас интересует">
                             <button type="submit" class="btn btn-hover">Отправить</button>
                         </form>
                         <img src="/img/footer.png" alt="Оставьте заявку">
@@ -90,6 +90,7 @@
             </div>
         </footer>
     </div>
+    <script src="/js/mail.js"></script>
     @yield('scripts')
 
 </body>
