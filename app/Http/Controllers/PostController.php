@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostImgAddRequest;
+use App\Http\Requests\PostImgUpdateRequest;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
+use App\Models\Post_Img;
 use Illuminate\Http\JsonResponse;
 
 class PostController extends Controller
@@ -74,6 +77,48 @@ class PostController extends Controller
     public function destroy(Post $post): JsonResponse
     {
         $result = $post->delete();
+        return response()->json(["message" => $result ? "success" : "error"], $result ? 200 : 500);
+    }
+
+    /**
+     *
+     * @param PostImgAddRequest $request
+     * @return JsonResponse
+     */
+    public function addImg(PostImgAddRequest $request): JsonResponse
+    {
+        $post_img = Post_Img::query()->make(
+            [
+                "post_id" => $request->getId(),
+                "img_src" => Post_Img::saveImg($request->getImg()),
+            ]
+        );
+        $post_img->save();
+        return response()->json(["message" => "success", "response" => $post_img], 200);
+    }
+
+
+    /**
+     *
+     * @param PostImgUpdateRequest $request
+     * @param Post_Img $post_img
+     * @return JsonResponse
+     */
+    public function updateImg(PostImgUpdateRequest $request, Post_Img $post_img): JsonResponse
+    {
+        $post_img->img_src = Post_Img::saveImg($request->getImg());
+        $post_img->save();
+        return response()->json(["message" => "success", "response" => $post_img], 200);
+    }
+
+    /**
+     *
+     * @param Post_Img $post_img
+     * @return JsonResponse
+     */
+    public function delImg(Post_Img $post_img): JsonResponse
+    {
+        $result = $post_img->delete();
         return response()->json(["message" => $result ? "success" : "error"], $result ? 200 : 500);
     }
 }

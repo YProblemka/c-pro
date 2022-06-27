@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PostImgAddRequest;
-use App\Http\Requests\PostImgDelRequest;
 use App\Http\Requests\ServiceRequest;
-use App\Models\Post_Img;
 use App\Models\Service;
 use Illuminate\Http\JsonResponse;
 
@@ -81,37 +78,6 @@ class ServiceController extends Controller
     public function destroy(Service $service): JsonResponse
     {
         $result = $service->delete();
-        return response()->json(["message" => $result ? "success" : "error"], $result ? 200 : 500);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param PostImgAddRequest $request
-     * @return JsonResponse
-     */
-    public function addImg(PostImgAddRequest $request): JsonResponse
-    {
-        $post_img = Post_Img::query()->make(
-            [
-                "post_id" => $request->getId(),
-                "img_src" => Post_Img::saveImg($request->getImg()),
-            ]
-        );
-        $post_img->save();
-        return response()->json(["message" => "success", "response" => $post_img], 200);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param PostImgDelRequest $request
-     * @return JsonResponse
-     */
-    public function delImg(PostImgDelRequest $request): JsonResponse
-    {
-        $post_img = Post_Img::getById($request->getId());
-        $result = $post_img->delete();
         return response()->json(["message" => $result ? "success" : "error"], $result ? 200 : 500);
     }
 }

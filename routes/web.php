@@ -55,11 +55,11 @@ Route::prefix("action")->group(function () {
 
         Route::apiResource("post", PostController::class)->missing(
             fn() => response()->json(["message" => "No query results for model \"Post\""], 404)
-        )->except(["destroy", "store"]);
+        );
 
-        Route::post('/post/add_img', [ServiceController::class, 'addImg'])->name("addImg");
-
-        Route::post('/post/del_img', [ServiceController::class, 'delImg'])->name("delImg");
+        Route::post('/post_img', [PostController::class, 'addImg'])->name("addImg");
+        Route::put('/post_img/{post_img:id}', [PostController::class, 'updateImg'])->name("updateImg");
+        Route::delete('/post_img/{post_img:id}', [PostController::class, 'delImg'])->name("delImg");
     });
 });
 
@@ -87,9 +87,9 @@ Route::prefix("administration")->name("admin.")->group(function () {
             return view('admin/blog', compact("paginate"));
         })->name("blog");
 
-        Route::get('/blog-details/{post:id}', function (Post $post) {
-            return view('blog-details', compact('post'));
-        })->name("blog-details");
+        Route::get('/blog-images/{post:id}', function (Post $post) {
+            return view('blog-images', compact('post'));
+        })->name("blog-images");
     });
 
 });

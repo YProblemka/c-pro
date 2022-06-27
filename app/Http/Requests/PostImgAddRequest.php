@@ -25,7 +25,7 @@ class PostImgAddRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "id" => "bail|required|integer|exists:" . Post::class . ",id",
+            "post_id" => "bail|required|integer|exists:" . Post::class . ",id",
             "photo" => "required|file|max:10000|mimes:jpeg,jpg,png,svg,bmp,webp",
         ];
     }

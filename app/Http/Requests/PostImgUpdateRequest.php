@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Models\Post_Img;
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostImgDelRequest extends FormRequest
+class PostImgUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +25,12 @@ class PostImgDelRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "id" => "bail|required|integer|exists:" . Post_Img::class . ",id",
+            "photo" => "required|file|max:10000|mimes:jpeg,jpg,png,svg,bmp,webp",
         ];
     }
 
-    public function getId()
+     public function getImg()
     {
-        return $this->input("id");
+        return $this->file("photo");
     }
 }
