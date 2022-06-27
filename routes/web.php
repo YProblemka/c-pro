@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\OurWorkController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ServiceController;
@@ -38,6 +39,7 @@ Route::get('/blog-details/{post:id}', function (Post $post) {
     return view('blog-details', compact('post'));
 })->name("blog-details");
 
+Route::post('/email', [MailController::class, 'sendCustom'])->name("email");
 
 Route::prefix("action")->group(function () {
     Route::middleware("auth:admin")->group(function () {
