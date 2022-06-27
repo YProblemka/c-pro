@@ -15,11 +15,16 @@ class Post extends Model
         'date'
     ];
 
-    protected $appends = ['imgs'];
+    protected $appends = ['imgs', "change_photo_url"];
 
     public function getImgsAttribute(): string
     {
         return $this->imgs();
+    }
+
+    public function getChangePhotoUrlAttribute(): string
+    {
+        return route('admin.blog-images', ['post' => $this->id]);
     }
 
     public function imgs(): Collection
