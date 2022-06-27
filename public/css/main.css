@@ -412,7 +412,7 @@ div.align-center {
     color: var(--white);
 }
 
-.pagination .pagination__item:first-child {
+.pagination #paginate-left-arrow {
     transform: rotate(180deg);
 }
 

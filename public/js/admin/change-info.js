@@ -10,6 +10,7 @@ function update() {
     $(".change-input").hide();
     $(".services-dcp").hide();
     $(".add-img-btn").hide();
+    $(".change-input-blog-date").hide();
 
     $(".change-btn").show();
 
@@ -21,6 +22,7 @@ function update() {
         $(this).siblings(".app-doc-meta").find(".change-input-value").show();
 
         $(this).parent().siblings(".admin-ourWorks-img").hide();
+        $(this).parent().siblings(".admin-blog-images-img").hide();
         $(this).parent().siblings(".admin-services-img").hide();
         $(this).siblings("h4").hide();
         $(this).siblings(".app-doc-meta").find(".services-dcp-text").hide();
@@ -28,6 +30,10 @@ function update() {
         $(this).siblings(".add-img-btn").show();
         $(this).siblings(".change-input").show();
         $(this).siblings(".app-doc-meta").find(".services-dcp").show();
+
+        $(this).parent().find(".change-input-blog-date").show();
+        $(this).parent().find(".admin-blog-details-img").hide();
+        $(this).parent().find(".blog-date-text").hide();
 
         return false;
     });
@@ -204,64 +210,166 @@ function update() {
     });
     // update services
 
-    // example
-    // $(".save-btn-settings").click(function () {
-    //     var fd = new FormData();
-    //     fd.append("name", $(this).siblings(".change-input")[0].value);
-    //     maker_name = $(this).siblings("h4").children()[0];
-    //     btn = $(this)[0];
-    //     if ($(this)[0].id !== "") {
-    //         fd.append("_method", "PUT");
-    //         $.ajax({
-    //             type: "POST",
-    //             cache: false,
-    //             processData: false,
-    //             contentType: false,
-    //             data: fd,
-    //             url: "/action/maker/" + $(this)[0].id,
-    //             success: function (data) {
-    //                 maker_name.innerHTML = data.response.name;
-    //             },
-    //             error: function (data) {
-    //                 if (data.status == 422) {
-    //                     alert("Неверные данные");
-    //                 } else if (data.status == 404) {
-    //                     alert("Производитель не найден");
-    //                 } else if (data.status == 500) {
-    //                     alert("Написать разработчикам");
-    //                 }
-    //             },
-    //         });
-    //     } else {
-    //         // add maker
-    //         fd.append("_method", "POST");
-    //         $.ajax({
-    //             type: "POST",
-    //             cache: false,
-    //             processData: false,
-    //             contentType: false,
-    //             data: fd,
-    //             url: "/action/maker",
-    //             success: function (data) {
-    //                 maker_name.innerHTML = data.response.name;
-    //                 btn.id = data.response.id;
-    //             },
-    //             error: function (data) {
-    //                 if (data.status == 422) {
-    //                     alert("Неверные данные");
-    //                 } else if (data.status == 500) {
-    //                     alert("Написать разработчикам");
-    //                 }
-    //             },
-    //         });
-    //         // add maker
-    //     }
-    //     $(this).hide();
-    //     $(this).siblings(".delete-btn").hide();
-    //     $(this).siblings(".change-input").hide();
-    //     $(this).siblings(".change-btn").show();
-    // });
-    // example
+    // update blog
+    $(".save-btn-blog").click(function () {
+        const title_input = $(this).siblings(".change-input")[0];
+        const title = $(this).siblings("h4")[0];
+        const date_input = $(this)
+            .siblings(".app-doc-meta")
+            .find(".change-input-blog-date")[0];
+        const date = $(this)
+            .siblings(".app-doc-meta")
+            .find(".admin-blog-date")[0];
+        const save_btn = $(this)[0];
+        const change_photo_btn = $(this).siblings("a.btn")[0];
+
+        const id = $(this)[0].id;
+
+        var fd = new FormData();
+
+        fd.append("title", title_input.value);
+        fd.append("date", date_input.value);
+        if ($(this)[0].id !== "") {
+            fd.append("_method", "PUT");
+            $.ajax({
+                type: "POST",
+                cache: false,
+                processData: false,
+                contentType: false,
+                data: fd,
+                url: "/action/post/" + id,
+                success: function (data) {
+                    title.innerText = data.response.title;
+                    date.innerText = data.response.date;
+                },
+                error: function (data) {
+                    if (data.status == 422) {
+                        alert(
+                            "Неверные данные или размер файла превышает максимально допустимый"
+                        );
+                    } else if (data.status == 404) {
+                        alert("Не найдено");
+                    } else if (data.status == 500) {
+                        alert("Написать разработчикам");
+                    }
+                },
+            });
+        } else {
+            // add blog
+            fd.append("_method", "POST");
+            $.ajax({
+                type: "POST",
+                cache: false,
+                processData: false,
+                contentType: false,
+                data: fd,
+                url: "/action/post",
+                success: function (data) {
+                    title.innerText = data.response.title;
+                    date.innerText = data.response.date;
+                    save_btn.id = data.response.id;
+                    change_photo_btn.href = data.response.change_photo_url;
+                },
+                error: function (data) {
+                    if (data.status == 422) {
+                        alert(
+                            "Неверные данные или размер файла превышает максимально допустимый"
+                        );
+                    } else if (data.status == 404) {
+                        alert("Не найдено");
+                    } else if (data.status == 500) {
+                        alert("Написать разработчикам");
+                    }
+                },
+            });
+            // add blog
+        }
+        $(title_input).hide();
+        $(date_input).hide();
+
+        $(title).show();
+        $(this).parent().find(".blog-date-text").show();
+        // $(date).show();
+
+        $(this).hide();
+        $(this).siblings(".delete-btn").hide();
+        $(".change-btn").show();
+    });
+    // update blog
+
+    // update blog-img
+    $(".save-btn-blog-images").click(function () {
+        const img_input = $(this).siblings(".add-img-btn")[0];
+        const img = $(this).parent().siblings(".admin-blog-images-img")[0];
+        const post_id = location.href.split("blog-images/")[1];
+        const save_btn = $(this)[0];
+
+        const id = $(this)[0].id;
+
+        var fd = new FormData();
+
+        fd.append("post_id", post_id);
+        fd.append("photo", img_input.files[0]);
+        if ($(this)[0].id !== "") {
+            fd.append("_method", "PUT");
+            $.ajax({
+                type: "POST",
+                cache: false,
+                processData: false,
+                contentType: false,
+                data: fd,
+                url: "/action/post_img/" + id,
+                success: function (data) {
+                    img.src = data.response.img_url;
+                },
+                error: function (data) {
+                    if (data.status == 422) {
+                        alert(
+                            "Неверные данные или размер файла превышает максимально допустимый"
+                        );
+                    } else if (data.status == 404) {
+                        alert("Не найдено");
+                    } else if (data.status == 500) {
+                        alert("Написать разработчикам");
+                    }
+                },
+            });
+        } else {
+            // add blog-img
+            fd.append("_method", "POST");
+            $.ajax({
+                type: "POST",
+                cache: false,
+                processData: false,
+                contentType: false,
+                data: fd,
+                url: "/action/post_img",
+                success: function (data) {
+                    img.src = data.response.img_url;
+                    save_btn.href = data.response.id;
+                },
+                error: function (data) {
+                    if (data.status == 422) {
+                        alert(
+                            "Неверные данные или размер файла превышает максимально допустимый"
+                        );
+                    } else if (data.status == 404) {
+                        alert("Не найдено");
+                    } else if (data.status == 500) {
+                        alert("Написать разработчикам");
+                    }
+                },
+            });
+            // add blog-img
+        }
+        $(img_input).hide();
+        $(img).show();
+
+        $(this).hide();
+        $(this).siblings(".delete-btn").hide();
+        $(".change-btn").show();
+    });
+    // update blog-img
 
     // delete someone
     $(".delete-btn").click(function () {
@@ -324,4 +432,57 @@ $(document).ready(function () {
         update();
     });
     // add service
+
+    // add blog
+    $(".add-btn-blog").click(function () {
+        $(".all-cards").prepend(
+            `<div class="col-6 col-md-4 col-xl-3 col-xxl-3">
+            <div class="app-card app-card-doc shadow-sm h-100">
+                <div class="app-card-body p-3">
+                    <h4 class="app-doc-title truncate mb-0" title=""></h4>
+                    <input type="text" name="name" class="change-input" placeholder="Название услуги"
+                        value="">
+                    <div class="app-doc-meta">
+                        <ul class="list-unstyled mb-0">
+                            <li class="blog-date-text">
+                                <span class="text-muted">Дата:</span>
+                                <span class="admin-blog-date"></span>
+                            </li>
+                            <input type="text" class="change-input-blog-date" placeholder="Дата"
+                                value="">
+                        </ul>
+                    </div>
+                    <button class="change-btn change-btn-blog btn btn-primary">Изменить</button>
+                    <button class="save-btn save-btn-blog btn btn-primary" id="">Сохранить</button>
+                    <a class="btn btn-primary" href="">Изменить
+                        фото</a>
+                    <button class="delete-btn btn btn-primary" path="post"><i class="far fa-trash-alt"
+                            style="color: white;"></i></button>
+                </div>
+            </div>
+        </div>`
+        );
+        update();
+    });
+    // add blog
+
+    // add blog-image
+    $(".add-btn-blog-images").click(function () {
+        $(".all-cards").prepend(
+            `<div class="col-6 col-md-4 col-xl-3 col-xxl-3">
+            <div class="app-card app-card-doc shadow-sm h-100">
+                <img src="" class="admin-blog-images-img">
+                <div class="app-card-body p-3">
+                    <input type="file" class="add-img-btn">
+                    <button class="change-btn change-btn-blog-images btn btn-primary">Изменить</button>
+                    <button class="save-btn save-btn-blog-images btn btn-primary" id="">Сохранить</button>
+                    <button class="delete-btn btn btn-primary" path=""><i class="far fa-trash-alt"
+                            style="color: white;"></i></button>
+                </div>
+            </div>
+        </div>`
+        );
+        update();
+    });
+    // add blog-image
 });

@@ -14,8 +14,9 @@
                     <nav class="nav">
                         <h3 class="nav__title">Все услуги</h3>
                         <ul class="nav__list">
-                            @foreach (App\Models\Service::all()->sortBy("name") as $item)
-                                <li class="nav__item"><a href="{{ route("service", ["service"=>$item->id])  }}" class="nav__link">{{$item->name}}</a></li>
+                            @foreach (App\Models\Service::all()->sortBy('name') as $item)
+                                <li class="nav__item"><a href="{{ route('service', ['service' => $item->id]) }}"
+                                        class="nav__link">{{ $item->name }}</a></li>
                             @endforeach
                         </ul>
                     </nav>
@@ -33,28 +34,19 @@
                 <h2>Блог</h2>
                 <ul class="blog__list">
                     <li class="blog__item">
-                        <div class="card">
-                            <img src="img/blog.png" alt="" class="card__img">
-                            <p class="card__title">Сделали квартиру в танхаусе</p>
-                            <p class="card__date">09.06.2022</p>
-                            <a href="{{ route('blog-details') }}" class="btn btn-hover">Подробнее</a>
-                        </div>
-                    </li>
-                    <li class="blog__item">
-                        <div class="card">
-                            <img src="img/blog.png" alt="" class="card__img">
-                            <p class="card__title">Сделали квартиру в танхаусе</p>
-                            <p class="card__date">09.06.2022</p>
-                            <a href="{{ route('blog-details') }}" class="btn btn-hover">Подробнее</a>
-                        </div>
-                    </li>
-                    <li class="blog__item">
-                        <div class="card">
-                            <img src="img/blog.png" alt="" class="card__img">
-                            <p class="card__title">Сделали квартиру в танхаусе</p>
-                            <p class="card__date">09.06.2022</p>
-                            <a href="{{ route('blog-details') }}" class="btn btn-hover">Подробнее</a>
-                        </div>
+                        @foreach (App\Models\Post::query()->orderByDesc("updated_at")->limit(3)->get(); as $item)
+                        @php
+                            $images = $item->imgs();
+                        @endphp    
+                        @if (count($images) != 0) 
+                            <div class="card">
+                                <img src="{{$images[0]->getImgSrc()}}" class="card__img">
+                                <p class="card__title">{{$item->title}}</p>
+                                <p class="card__date">{{$item->date}}</p>
+                                <a href="{{ route('blog-details', ['post' => $item->id]) }}" class="btn btn-hover">Подробнее</a>
+                            </div>
+                            @endif
+                        @endforeach
                     </li>
                 </ul>
                 <div class="align-right">

@@ -25,36 +25,38 @@ Route::get('/', function () {
 })->name("index");
 
 Route::get('/blog', function () {
-    return view('blog');
+    $paginate = Post::query()->orderByDesc("updated_at")->paginate(12, ['*'], "p")
+        ->withPath(route('blog'));
+    return view('blog', compact("paginate"));
 })->name("blog");
 
 Route::get('/service/{service:id}', function (Service $service) {
     return view('service', compact('service'));
 })->name("service");
 
-Route::get('/blog-details', function () {
-    return view('blog-details');
+Route::get('/blog-details/{post:id}', function (Post $post) {
+    return view('blog-details', compact('post'));
 })->name("blog-details");
 
 
 Route::prefix("action")->group(function () {
     Route::middleware("auth:admin")->group(function () {
         Route::apiResource("service", ServiceController::class)->missing(
-            fn() => response()->json(["message" => "No query results for model \"Service\""], 404)
+            fn () => response()->json(["message" => "No query results for model \"Service\""], 404)
         );
 
         Route::apiResource("setting", SettingController::class)->scoped([
             'setting' => 'name',
         ])->missing(
-            fn() => response()->json(["message" => "No query results for model \"Setting\""], 404)
+            fn () => response()->json(["message" => "No query results for model \"Setting\""], 404)
         )->except(["destroy", "store"]);
 
         Route::apiResource("our_work", OurWorkController::class)->missing(
-            fn() => response()->json(["message" => "No query results for model \"OurWork\""], 404)
+            fn () => response()->json(["message" => "No query results for model \"OurWork\""], 404)
         )->except(["destroy", "store"]);
 
         Route::apiResource("post", PostController::class)->missing(
-            fn() => response()->json(["message" => "No query results for model \"Post\""], 404)
+            fn () => response()->json(["message" => "No query results for model \"Post\""], 404)
         );
 
         Route::post('/post_img', [PostController::class, 'addImg'])->name("addImg");
@@ -88,8 +90,7 @@ Route::prefix("administration")->name("admin.")->group(function () {
         })->name("blog");
 
         Route::get('/blog-images/{post:id}', function (Post $post) {
-            return view('blog-images', compact('post'));
+            return view('admin/blog-images', compact('post'));
         })->name("blog-images");
     });
-
 });

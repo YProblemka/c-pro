@@ -28,26 +28,28 @@
         </div>
     </div>
     <div class="row g-4 all-cards">
-        @foreach (App\Models\Post::all() as $item)
-            <div class="col-6 col-md-4 col-xl-3 col-xxl-4">
+        @foreach ($paginate as $item)
+            <div class="col-6 col-md-4 col-xl-3 col-xxl-3">
                 <div class="app-card app-card-doc shadow-sm h-100">
                     <div class="app-card-body p-3">
-                        <h4 class="app-doc-title truncate mb-0" title="{{ $item->name }}">{{ $item->name }}</h4>
+                        <h4 class="app-doc-title truncate mb-0" title="{{ $item->title }}">{{ $item->title }}</h4>
                         <input type="text" name="name" class="change-input" placeholder="Название услуги"
-                            value="{{ $item->name }}">
+                            value="{{ $item->title }}">
                         <div class="app-doc-meta">
                             <ul class="list-unstyled mb-0">
-                                <li class="blog-dcp-text">
+                                <li class="blog-date-text">
                                     <span class="text-muted">Дата:</span>
                                     <span class="admin-blog-date">{{ $item->date }}</span>
                                 </li>
-                                <input type="text" name="price" class="change-input-price" placeholder="Цена товара"
-                                    value="{{ $item->getPrice() }}">
+                                <input type="text" class="change-input-blog-date" placeholder="Дата"
+                                    value="{{ $item->date }}">
                             </ul>
                         </div>
                         <button class="change-btn change-btn-blog btn btn-primary">Изменить</button>
                         <button class="save-btn save-btn-blog btn btn-primary" id="{{ $item->id }}">Сохранить</button>
-                        <button class="delete-btn btn btn-primary" path="service"><i class="far fa-trash-alt"
+                        <a class="btn btn-primary" href="{{ route('admin.blog-images', ['post' => $item->id]) }}">Изменить
+                            фото</a>
+                        <button class="delete-btn btn btn-primary" path="post"><i class="far fa-trash-alt"
                                 style="color: white;"></i></button>
                     </div>
                 </div>
