@@ -36,12 +36,13 @@
             <div class="container">
                 <div class="footer__wrapper">
                     <div class="footer__top">
-                        <form action="{{route("email")}}" method="POST" class="footer__form form">
+                        <form method="POST" class="footer__form form" id="footer_form">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                             <h4 class="form__title">Закажите консультацию, оставив нам свою почту. Мы вам всё расскажем
                             </h4>
                             <input type="email" name="email" placeholder="E-mail*" required>
                             <input type="text" name="text" placeholder="Напишите, что вас интересует">
-                            <button type="submit" class="btn btn-hover">Отправить</button>
+                            <button type="submit" class="btn btn-hover" id="footer_form_btn">Отправить</button>
                         </form>
                         <img src="/img/footer.png" alt="Оставьте заявку">
                     </div>
@@ -90,6 +91,7 @@
             </div>
         </footer>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/mail.js"></script>
     @yield('scripts')
 
