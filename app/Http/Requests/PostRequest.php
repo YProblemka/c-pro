@@ -25,7 +25,7 @@ class PostRequest extends FormRequest
     {
         return [
             "title" => "required|string|min:3|max:60",
-            "date" => "required|date"
+            "date" => "required|string|min:3|max:60"
         ];
     }
 
