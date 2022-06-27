@@ -32,7 +32,7 @@ class PostImgAddRequest extends FormRequest
 
     public function getId()
     {
-        return $this->input("id");
+        return $this->input("post_id");
     }
 
     public function getImg()
