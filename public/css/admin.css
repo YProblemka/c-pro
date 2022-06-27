@@ -9976,8 +9976,9 @@ button.close:focus {
 
 .app-nav .nav-icon {
     position: absolute;
-    left: 1rem;
-    top: 1rem
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .app-nav .nav-icon .bi {

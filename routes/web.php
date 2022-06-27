@@ -83,5 +83,10 @@ Route::prefix("administration")->name("admin.")->group(function () {
             return view('admin/services');
         })->name("services");
     });
+    Route::middleware("auth:admin")->group(function () {
+        Route::get('/blog', function () {
+            return view('admin/blog');
+        })->name("blog");
+    });
 
 });
