@@ -9,12 +9,10 @@ use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
-    public function sendCustom(MailRequest $request): Limit
+    public function sendCustom(MailRequest $request)
     {
         Mail::to(config("app.app_mail"))
             ->send(new FeedbackMail($request->getEmail(), $request->getText()));
-        return Limit::perMinute(2)->response(function () {
-            return response()->json(["message" => "success"], 200);
-        });
+        return response("success");
     }
 }

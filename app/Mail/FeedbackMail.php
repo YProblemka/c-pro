@@ -32,6 +32,6 @@ class FeedbackMail extends Mailable
     public function build()
     {
         return $this->markdown('mail.cust_employer')
-            ->subject("Новый кастомный заказ заказ");
+            ->subject("С вами захотели связаться");
     }
 }
