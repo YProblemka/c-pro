@@ -5,6 +5,7 @@ use App\Http\Controllers\OurWorkController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -85,7 +86,9 @@ Route::prefix("administration")->name("admin.")->group(function () {
     });
     Route::middleware("auth:admin")->group(function () {
         Route::get('/blog', function () {
-            return view('admin/blog');
+            $paginate = Post::query()->orderByDesc("updated_at")->paginate(12, ['*'], "p")
+                ->withPath(route('admin.blog'));
+            return view('admin/blog', compact("paginate"));
         })->name("blog");
     });
 
