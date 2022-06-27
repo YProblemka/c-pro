@@ -34,7 +34,7 @@
                 <h2>Блог</h2>
                 <ul class="blog__list">
                     <li class="blog__item">
-                        @foreach (App\Models\Post::query()->orderByDesc("updated_at")->limit(3)->get(); as $item)
+                        @foreach (App\Models\Post::query()->orderByDesc("updated_at")->limit(3)->get() as $item)
                         @php
                             $images = $item->imgs();
                         @endphp    
@@ -45,7 +45,7 @@
                                 <p class="card__date">{{$item->date}}</p>
                                 <a href="{{ route('blog-details', ['post' => $item->id]) }}" class="btn btn-hover">Подробнее</a>
                             </div>
-                            @endif
+                        @endif
                         @endforeach
                     </li>
                 </ul>

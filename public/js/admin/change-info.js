@@ -132,6 +132,7 @@ function update() {
             .siblings(".app-doc-meta")
             .find(".services-dcp")[0];
         const id = $(this)[0].id;
+        const save_btn = $(this)[0];
 
         var fd = new FormData();
 
@@ -180,6 +181,7 @@ function update() {
                     title.innerText = data.response.name;
                     img.src = data.response.img_url;
                     dcp.innerText = data.response.text;
+                    save_btn.id = data.response.id;
                 },
                 error: function (data) {
                     if (data.status == 422) {

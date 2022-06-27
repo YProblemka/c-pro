@@ -90,12 +90,12 @@
         width: 100%;
         align-items: flex-start;
     }
-    .pagination .pagination__link {
+    .pagination .pagination__link, #paginate-left-arrow, #paginate-right-arrow {
         font-weight: 400;
         font-size: 14px;
         line-height: 138%;
-        width: 35px;
-        height: 35px;
+        width: 25px;
+        height: 25px;
     }
     .inner > section {
         margin-bottom: calc(var(--section-gap) / 2);
