@@ -269,7 +269,7 @@ img {
 
 .grid--big {
     grid-template-columns: repeat(3, 1fr) !important;
-    grid-template-rows: 250px 250px !important;
+    grid-template-rows: auto !important;
 }
 
 .our-works__list img {
