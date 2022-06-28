@@ -56,7 +56,7 @@
                                     $i++;
                                 @endphp
                                 @if ($i == 1)
-                                    <ul class="footer__list">
+                                    <ul class="footer__list footer__list--nav">
                                 @endif
                                 <li><a href="{{ route('service', ['service' => $item->id]) }}">{{ $item->name }}</a>
                                 </li>

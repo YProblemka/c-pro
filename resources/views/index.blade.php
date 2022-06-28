@@ -33,21 +33,23 @@
             <section class="blog index-blog">
                 <h2>Блог</h2>
                 <ul class="blog__list">
-                    <li class="blog__item">
-                        @foreach (App\Models\Post::query()->orderByDesc("updated_at")->limit(3)->get() as $item)
+                    @foreach (App\Models\Post::query()->orderByDesc('updated_at')->limit(3)->get()
+        as $item)
                         @php
                             $images = $item->imgs();
-                        @endphp    
-                        @if (count($images) != 0) 
-                            <div class="card">
-                                <img src="{{$images[0]->getImgSrc()}}" class="card__img">
-                                <p class="card__title">{{$item->title}}</p>
-                                <p class="card__date">{{$item->date}}</p>
-                                <a href="{{ route('blog-details', ['post' => $item->id]) }}" class="btn btn-hover">Подробнее</a>
-                            </div>
+                        @endphp
+                        @if (count($images) != 0)
+                            <li class="blog__item">
+                                <div class="card">
+                                    <img src="{{ $images[0]->getImgSrc() }}" class="card__img">
+                                    <p class="card__title">{{ $item->title }}</p>
+                                    <p class="card__date">{{ $item->date }}</p>
+                                    <a href="{{ route('blog-details', ['post' => $item->id]) }}"
+                                        class="btn btn-hover">Подробнее</a>
+                                </div>
+                            </li>
                         @endif
-                        @endforeach
-                    </li>
+                    @endforeach
                 </ul>
                 <div class="align-right">
                     <a href="{{ route('blog') }}" class="load-more">Ещё <img src="img/arrow.svg" alt="Загрузить"></a>
