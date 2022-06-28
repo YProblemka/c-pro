@@ -26,7 +26,7 @@ Route::get('/', function () {
 })->name("index");
 
 Route::get('/blog', function () {
-    $paginate = Post::query()->orderByDesc("updated_at")->paginate(12, ['*'], "p")
+    $paginate = Post::query()->orderByDesc("updated_at")->paginate(3, ['*'], "p")
         ->withPath(route('blog'));
     return view('blog', compact("paginate"));
 })->name("blog");
