@@ -8,7 +8,7 @@ COPY composer.lock composer.json /var/www/
 
 WORKDIR /var/www
 
-RUN apt-get update
+RUN apt-get update --fix-missing
 RUN apt-get install -y libpq-dev \
     supervisor \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
@@ -21,6 +21,12 @@ RUN apt-get install -y \
         libzip-dev \
         zip \
   && docker-php-ext-install zip
+
+# memcached
+RUN apt-get install -y libmemcached-dev --no-install-recommends
+RUN pecl install memcached \
+    && docker-php-ext-enable memcached
+# ------
 
 COPY docker/scripts/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN touch /var/www/cron.log

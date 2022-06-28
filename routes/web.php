@@ -23,21 +23,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-})->name("index");
+})->middleware("cache.page:15")->name("index");
 
 Route::get('/blog', function () {
     $paginate = Post::query()->orderByDesc("updated_at")->paginate(3, ['*'], "p")
         ->withPath(route('blog'));
     return view('blog', compact("paginate"));
-})->name("blog");
+})->middleware("cache.page:15")->name("blog");
 
 Route::get('/service/{service:id}', function (Service $service) {
     return view('service', compact('service'));
-})->name("service");
+})->middleware("cache.page:15")->name("service");
 
 Route::get('/blog-details/{post:id}', function (Post $post) {
     return view('blog-details', compact('post'));
-})->name("blog-details");
+})->middleware("cache.page:15")->name("blog-details");
 
 Route::post('/email', [MailController::class, 'sendCustom'])->name("email");
 
