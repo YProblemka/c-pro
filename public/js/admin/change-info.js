@@ -478,7 +478,7 @@ $(document).ready(function () {
                     <input type="file" class="add-img-btn">
                     <button class="change-btn change-btn-blog-images btn btn-primary">Изменить</button>
                     <button class="save-btn save-btn-blog-images btn btn-primary" id="">Сохранить</button>
-                    <button class="delete-btn btn btn-primary" path=""><i class="far fa-trash-alt"
+                    <button class="delete-btn btn btn-primary" path="post_img"><i class="far fa-trash-alt"
                             style="color: white;"></i></button>
                 </div>
             </div>
