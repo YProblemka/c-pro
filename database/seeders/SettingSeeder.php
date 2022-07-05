@@ -41,10 +41,6 @@ class SettingSeeder extends Seeder
             if (!$settingDB->exists) {
                 Setting::query()->create($setting);
             }
-            else{
-                $settingDB->value = $setting["value"];
-                $settingDB->save();
-            }
         }
     }
 }
